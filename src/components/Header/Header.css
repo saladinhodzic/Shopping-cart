@@ -1,0 +1,17 @@
+header {
+  width: 100%;
+  height: 12vh;
+  display: flex;
+}
+
+.logo {
+  flex-grow: 4;
+}
+
+.shopping-logo {
+  width: 5em;
+}
+
+.listing {
+  flex-grow: 6;
+}

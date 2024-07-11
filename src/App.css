@@ -4,21 +4,30 @@
 }
 
 .navlink-active {
-  color: #fff;
+  color: #f47422;
   list-style: none;
   transition: all 200ms ease-in;
 }
 
 .navlink-active:hover {
-  color: #838386;
-}
-
-.navlink-not-active:hover {
   color: #fff;
 }
 
+.navlink-not-active:hover {
+  color: #f47422;
+}
+
 .navlink-not-active {
-  color: #838386;
+  color: #fff;
   list-style: none;
   transition: all 200ms ease-in;
+}
+
+.link-active {
+  color: #003366;
+  transition: all 200ms ease-in;
+}
+
+.link-active:hover {
+  color: #004a93;
 }

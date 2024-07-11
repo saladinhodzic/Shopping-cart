@@ -6,12 +6,7 @@ export default function Header() {
   return (
     <header>
       <div className="wrapper">
-        <NavLink
-          to="/"
-          className={({ isActive }) =>
-            isActive ? "navlink-active" : "navlink-not-active"
-          }
-        >
+        <NavLink to="/" className="navlink-not-active">
           <div className="logo">
             <img src={logo} alt="" className="shopping-logo" />
             <h1>SAKILEY</h1>
@@ -26,7 +21,14 @@ export default function Header() {
           >
             <li>Products</li>
           </NavLink>
-          <li>My Favourites</li>
+          <NavLink
+            to="/outlet"
+            className={({ isActive }) =>
+              isActive ? "navlink-active" : "navlink-not-active"
+            }
+          >
+            <li>Outlet</li>
+          </NavLink>
           <li>
             <FaShoppingCart className="icon" />
           </li>

@@ -7,7 +7,11 @@ export default function Slogan() {
         <div className="content">
           <h1>Discover. Shop. Enjoy.</h1>
           <h2>
-            See our <Link to="/products">products</Link>.
+            See our {""}
+            <Link className="link-active" to="/products">
+              products
+            </Link>
+            .
           </h2>
         </div>
       </div>

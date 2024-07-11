@@ -6,10 +6,17 @@ export default function Header() {
   return (
     <header>
       <div className="wrapper">
-        <div className="logo">
-          <img src={logo} alt="" className="shopping-logo" />
-          <h1>SAKILEY</h1>
-        </div>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? "navlink-active" : "navlink-not-active"
+          }
+        >
+          <div className="logo">
+            <img src={logo} alt="" className="shopping-logo" />
+            <h1>SAKILEY</h1>
+          </div>
+        </NavLink>
         <div className="listing">
           <NavLink
             to="/products"

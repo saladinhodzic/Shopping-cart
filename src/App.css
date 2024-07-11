@@ -2,3 +2,23 @@
   width: 100%;
   min-height: 100vh;
 }
+
+.navlink-active {
+  color: #fff;
+  list-style: none;
+  transition: all 200ms ease-in;
+}
+
+.navlink-active:hover {
+  color: #838386;
+}
+
+.navlink-not-active:hover {
+  color: #fff;
+}
+
+.navlink-not-active {
+  color: #838386;
+  list-style: none;
+  transition: all 200ms ease-in;
+}

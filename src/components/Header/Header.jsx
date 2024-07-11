@@ -1,6 +1,7 @@
 import "./Header.css";
 import logo from "../../assets/shopping-logo.svg";
 import { FaShoppingCart } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 export default function Header() {
   return (
     <header>
@@ -10,7 +11,14 @@ export default function Header() {
           <h1>SAKILEY</h1>
         </div>
         <div className="listing">
-          <li>Products</li>
+          <NavLink
+            to="/products"
+            className={({ isActive }) =>
+              isActive ? "navlink-active" : "navlink-not-active"
+            }
+          >
+            <li>Products</li>
+          </NavLink>
           <li>My Favourites</li>
           <li>
             <FaShoppingCart className="icon" />

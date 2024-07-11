@@ -1,0 +1,22 @@
+main {
+  width: 100%;
+  height: 80vh;
+  background-size: cover;
+  background-image: linear-gradient(
+      rgba(26, 26, 26, 0.5),
+      rgba(38, 38, 38, 0.8)
+    ),
+    url(../../assets/girl.jpg);
+}
+
+.wrapper-slogan {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  height: 80vh;
+}
+
+.content {
+  background-color: #f47422;
+  padding: 1em 2em;
+}

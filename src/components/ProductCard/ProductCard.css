@@ -1,0 +1,14 @@
+.product {
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  width: 250px;
+  border-radius: 1em;
+  box-shadow: 0 0 20px 5px grey;
+}
+
+.img {
+  width: 100%;
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
+}

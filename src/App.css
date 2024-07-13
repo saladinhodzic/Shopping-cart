@@ -31,3 +31,7 @@
 .link-active:hover {
   color: #004a93;
 }
+
+.main {
+  min-height: 80vh;
+}

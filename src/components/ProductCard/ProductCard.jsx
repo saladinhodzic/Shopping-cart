@@ -1,6 +1,7 @@
 import { Card, Image, Text, Button } from "@mantine/core";
 import "./ProductCard.css";
-export default function ProductCard({ slika, description }) {
+import { FaShoppingCart } from "react-icons/fa";
+export default function ProductCard({ slika, description, title }) {
   return (
     <Card
       shadow="sm"
@@ -13,13 +14,18 @@ export default function ProductCard({ slika, description }) {
       <Card.Section>
         <Image className="img" src={slika} alt="No way!" />
       </Card.Section>
-
-      <Text mt="xs" c="dimmed" size="sm">
-        {description}
-      </Text>
-      <Button color="blue" fullWidth mt="md" radius="md">
-        Add To Cart
-      </Button>
+      <div className="info">
+        <Text className="naslov" mt="xs" size="sm">
+          {title}
+        </Text>
+        <Text className="description" mt="xs" size="sm">
+          {description}
+        </Text>
+        <Button className="cart-button" mt="md" radius="md">
+          <FaShoppingCart className="shopping-cart" />
+          Add To Cart
+        </Button>
+      </div>
     </Card>
   );
 }

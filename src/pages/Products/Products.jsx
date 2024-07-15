@@ -1,13 +1,20 @@
 import ProductCard from "../../components/ProductCard/ProductCard";
 import products from "../../common/products.json";
 import "./Products.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Pagination from "../../components/Pagination/Pagination";
 export default function Products() {
   const [page, setPage] = useState(1);
+  const [selected, setSelected] = useState(1);
   const proizvod = products.length;
-  const brojPoStranici = 20;
+  const brojPoStranici = 15;
   const brojStranica = proizvod / brojPoStranici;
+  useEffect(() => {
+    window.scrollTo({
+      behavior: "smooth",
+      top: 0,
+    });
+  }, [page]);
   return (
     <>
       <div className="wrapper-product">
@@ -24,7 +31,13 @@ export default function Products() {
           .slice(brojPoStranici * (page - 1), brojPoStranici * page)}
       </div>
       <div className="pagination">
-        <Pagination brojStranica={brojStranica} setPage={setPage} page={page} />
+        <Pagination
+          brojStranica={brojStranica}
+          setPage={setPage}
+          page={page}
+          setSelected={setSelected}
+          selected={selected}
+        />
       </div>
     </>
   );

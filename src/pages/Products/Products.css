@@ -5,3 +5,10 @@
   gap: 2em;
   margin: 3em 2em;
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2em;
+  gap: 0.5em;
+}

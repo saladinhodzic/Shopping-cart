@@ -9,19 +9,23 @@ export default function Products() {
   const brojPoStranici = 20;
   const brojStranica = proizvod / brojPoStranici;
   return (
-    <div className="wrapper-product">
-      {products
-        .map((product) => {
-          return (
-            <ProductCard
-              slika={product.image_url}
-              description={product.short_description}
-              title={product.title}
-            />
-          );
-        })
-        .slice(brojPoStranici * (page - 1), brojPoStranici * page)}
-      <Pagination brojStranica={brojStranica} setPage={setPage} page={page} />
-    </div>
+    <>
+      <div className="wrapper-product">
+        {products
+          .map((product) => {
+            return (
+              <ProductCard
+                slika={product.image_url}
+                description={product.short_description}
+                title={product.title}
+              />
+            );
+          })
+          .slice(brojPoStranici * (page - 1), brojPoStranici * page)}
+      </div>
+      <div className="pagination">
+        <Pagination brojStranica={brojStranica} setPage={setPage} page={page} />
+      </div>
+    </>
   );
 }

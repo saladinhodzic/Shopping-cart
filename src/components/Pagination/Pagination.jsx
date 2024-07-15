@@ -3,7 +3,7 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
 export default function Pagination({ brojStranica, setPage, page }) {
   const niz = [];
-  for (let i = 0; i <= brojStranica; i++) {
+  for (let i = 1; i <= brojStranica; i++) {
     niz.push(i);
   }
 
@@ -14,17 +14,23 @@ export default function Pagination({ brojStranica, setPage, page }) {
           setPage(page - 1);
         }}
         disabled={page === 1}
+        className="arrow"
       >
         <MdKeyboardArrowLeft />
       </button>
       {niz.map((value, index) => {
-        return <button onClick={() => setPage(value)}>{value}</button>;
+        return (
+          <button className="number" onClick={() => setPage(value)}>
+            {value}
+          </button>
+        );
       })}
       <button
         onClick={() => {
           setPage(page + 1);
         }}
-        disabled={page === brojStranica}
+        disabled={page === niz.length}
+        className="arrow"
       >
         <MdKeyboardArrowRight />
       </button>

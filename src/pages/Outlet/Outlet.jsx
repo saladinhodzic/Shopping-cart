@@ -36,7 +36,9 @@ export default function Outlet() {
                 onClick={() => addToCart(product)}
                 product={product}
                 price={product.current_price}
-                discountPrice={Math.round(price - price * 0.1) / 1000}
+                discountPrice={
+                  Math.round(price - price * (product.percentage / 100)) / 1000
+                }
               />
             );
           })

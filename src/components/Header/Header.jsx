@@ -35,8 +35,9 @@ export default function Header() {
               isActive ? "navlink-active" : "navlink-not-active"
             }
           >
-            <li>
+            <li className="shop">
               <FaShoppingCart className="icon" />
+              <div className="krug"></div>
             </li>
           </NavLink>
         </div>

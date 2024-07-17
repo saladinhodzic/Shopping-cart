@@ -32,6 +32,19 @@ header {
   width: 4em;
 }
 
+.shop {
+  position: relative;
+}
+.krug {
+  position: absolute;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background-color: #f47422;
+  top: -10px;
+  right: -10px;
+}
+
 .listing {
   flex-grow: 6;
   display: flex;

@@ -23,10 +23,13 @@
   color: black;
 }
 
-.description {
-  color: #838386;
+.price {
+  color: black;
   display: flex;
   gap: 1em;
+}
+.description {
+  color: #838386;
 }
 
 .cart-button {

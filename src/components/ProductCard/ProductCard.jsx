@@ -30,7 +30,7 @@ export default function ProductCard({
         <Text className="naslov" mt="xs" size="sm">
           {title}
         </Text>
-        <Text className="description" mt="xs" size="sm">
+        <Text className="price" mt="xs" size="sm">
           {discount ? <del>{price}</del> : price}
           {discount ? discountPrice : null}
         </Text>

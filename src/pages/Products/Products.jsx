@@ -6,6 +6,7 @@ import Pagination from "../../components/Pagination/Pagination";
 import { AppContext } from "../../context/AppContext";
 export default function Products() {
   const { addToCart } = useContext(AppContext);
+
   const [page, setPage] = useState(1);
   const proizvod = products.length;
   const brojPoStranici = 15;
@@ -27,6 +28,7 @@ export default function Products() {
                 description={product.short_description}
                 title={product.title}
                 onClick={() => addToCart(product)}
+                product={product}
               />
             );
           })

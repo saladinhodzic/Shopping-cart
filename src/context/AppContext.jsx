@@ -4,11 +4,12 @@ const AppContext = createContext();
 
 function ContextWrapper({ children }) {
   const [productsInCart, SetProductsInCart] = useState([]);
+
   function addToCart(product) {
     SetProductsInCart((prev) => {
       const isProductInCart = prev.some((item) => item.id === product.id);
       if (isProductInCart) {
-        return [...prev];
+        return prev.filter((item) => item.id !== product.id);
       } else {
         return [
           ...prev,

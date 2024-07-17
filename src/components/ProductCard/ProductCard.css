@@ -25,6 +25,8 @@
 
 .description {
   color: #838386;
+  display: flex;
+  gap: 1em;
 }
 
 .cart-button {

@@ -5,7 +5,7 @@ import { useContext, useEffect, useState } from "react";
 import Pagination from "../../components/Pagination/Pagination";
 import { AppContext } from "../../context/AppContext";
 export default function Outlet() {
-  const { addToCart } = useContext(AppContext);
+  const { addToCart, setDiscount } = useContext(AppContext);
 
   const [page, setPage] = useState(1);
   const proizvod = products.length;
@@ -17,6 +17,9 @@ export default function Outlet() {
       top: 0,
     });
   }, [page]);
+  useEffect(() => {
+    setDiscount(true);
+  }, []);
   return (
     <>
       <div className="wrapper-product">
@@ -32,7 +35,8 @@ export default function Outlet() {
                 title={product.title}
                 onClick={() => addToCart(product)}
                 product={product}
-                price={Math.round(price - price * 0.1) / 1000}
+                price={product.current_price}
+                discountPrice={Math.round(price - price * 0.1) / 1000}
               />
             );
           })

@@ -4,7 +4,7 @@ const AppContext = createContext();
 
 function ContextWrapper({ children }) {
   const [productsInCart, SetProductsInCart] = useState([]);
-
+  const [discount, setDiscount] = useState(false);
   function addToCart(product) {
     SetProductsInCart((prev) => {
       const isProductInCart = prev.some((item) => item.id === product.id);
@@ -25,6 +25,8 @@ function ContextWrapper({ children }) {
     productsInCart,
     SetProductsInCart,
     addToCart,
+    discount,
+    setDiscount,
   };
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;
 }

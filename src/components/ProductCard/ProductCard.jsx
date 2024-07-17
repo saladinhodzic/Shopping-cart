@@ -1,7 +1,7 @@
 import { Card, Image, Text, Button } from "@mantine/core";
 import "./ProductCard.css";
 import { FaShoppingCart } from "react-icons/fa";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AppContext } from "../../context/AppContext";
 export default function ProductCard({
   slika,
@@ -10,10 +10,11 @@ export default function ProductCard({
   onClick,
   product,
   price,
+  discountPrice,
 }) {
   const { productsInCart } = useContext(AppContext);
   const productInCart = productsInCart.some((item) => item.id === product.id);
-
+  const { discount } = useContext(AppContext);
   return (
     <Card
       shadow="sm"
@@ -30,7 +31,8 @@ export default function ProductCard({
           {title}
         </Text>
         <Text className="description" mt="xs" size="sm">
-          {price}
+          {discount ? <del>{price}</del> : price}
+          {discount ? discountPrice : null}
         </Text>
         <Text className="description" mt="xs" size="sm">
           {description}

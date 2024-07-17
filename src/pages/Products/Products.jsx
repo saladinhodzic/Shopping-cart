@@ -5,7 +5,7 @@ import { useContext, useEffect, useState } from "react";
 import Pagination from "../../components/Pagination/Pagination";
 import { AppContext } from "../../context/AppContext";
 export default function Products() {
-  const { addToCart } = useContext(AppContext);
+  const { addToCart, setDiscount } = useContext(AppContext);
 
   const [page, setPage] = useState(1);
   const proizvod = products.length;
@@ -17,6 +17,10 @@ export default function Products() {
       top: 0,
     });
   }, [page]);
+
+  useEffect(() => {
+    setDiscount(false);
+  }, []);
   return (
     <>
       <div className="wrapper-product">

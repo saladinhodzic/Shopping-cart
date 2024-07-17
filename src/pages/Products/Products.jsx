@@ -29,6 +29,7 @@ export default function Products() {
                 title={product.title}
                 onClick={() => addToCart(product)}
                 product={product}
+                price={product.current_price}
               />
             );
           })

@@ -9,6 +9,7 @@ export default function ProductCard({
   title,
   onClick,
   product,
+  price,
 }) {
   const { productsInCart } = useContext(AppContext);
   const productInCart = productsInCart.some((item) => item.id === product.id);
@@ -27,6 +28,9 @@ export default function ProductCard({
       <div className="info">
         <Text className="naslov" mt="xs" size="sm">
           {title}
+        </Text>
+        <Text className="description" mt="xs" size="sm">
+          {price}
         </Text>
         <Text className="description" mt="xs" size="sm">
           {description}

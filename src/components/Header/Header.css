@@ -36,9 +36,13 @@ header {
   position: relative;
 }
 .krug {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
-  height: 14px;
-  width: 14px;
+  height: 1.25em;
+  width: 1.25em;
+  font-size: 0.75em;
   border-radius: 50%;
   background-color: #f47422;
   top: -10px;
@@ -65,4 +69,8 @@ header {
 
 .icon {
   font-size: 1.5em;
+}
+
+.navlink-dot:hover .krug {
+  color: #fff;
 }

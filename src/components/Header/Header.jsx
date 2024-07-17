@@ -2,7 +2,10 @@ import "./Header.css";
 import logo from "../../assets/shopping-logo.svg";
 import { FaShoppingCart } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { AppContext } from "../../context/AppContext";
 export default function Header() {
+  const { productsInCart } = useContext(AppContext);
   return (
     <header>
       <div className="wrapper">
@@ -29,15 +32,12 @@ export default function Header() {
           >
             <li>Outlet</li>
           </NavLink>
-          <NavLink
-            to="/cart"
-            className={({ isActive }) =>
-              isActive ? "navlink-active" : "navlink-not-active"
-            }
-          >
+          <NavLink to="/cart" className="navlink-not-active navlink-dot">
             <li className="shop">
               <FaShoppingCart className="icon" />
-              <div className="krug"></div>
+              {productsInCart.length === 0 ? null : (
+                <div className="krug">{productsInCart.length}</div>
+              )}
             </li>
           </NavLink>
         </div>

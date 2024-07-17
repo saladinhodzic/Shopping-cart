@@ -1,5 +1,5 @@
 import ProductCard from "../../components/ProductCard/ProductCard";
-import products from "../../common/products.json";
+import products from "../../common/onSaleProducts.json";
 import "./Outlet.css";
 import { useContext, useEffect, useState } from "react";
 import Pagination from "../../components/Pagination/Pagination";

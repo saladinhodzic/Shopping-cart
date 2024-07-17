@@ -29,9 +29,16 @@ export default function Header() {
           >
             <li>Outlet</li>
           </NavLink>
-          <li>
-            <FaShoppingCart className="icon" />
-          </li>
+          <NavLink
+            to="/cart"
+            className={({ isActive }) =>
+              isActive ? "navlink-active" : "navlink-not-active"
+            }
+          >
+            <li>
+              <FaShoppingCart className="icon" />
+            </li>
+          </NavLink>
         </div>
       </div>
     </header>

@@ -1,13 +1,12 @@
 import { Card, Image, Text, Button } from "@mantine/core";
 import "./ProductCard.css";
 import { FaShoppingCart } from "react-icons/fa";
-export default function ProductCard({ slika, description, title }) {
+export default function ProductCard({ slika, description, title, onClick }) {
   return (
     <Card
       shadow="sm"
       padding="xl"
       component="a"
-      href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
       target="_blank"
       className="product"
     >
@@ -21,7 +20,7 @@ export default function ProductCard({ slika, description, title }) {
         <Text className="description" mt="xs" size="sm">
           {description}
         </Text>
-        <Button className="cart-button" mt="md" radius="md">
+        <Button className="cart-button" mt="md" radius="md" onClick={onClick}>
           <FaShoppingCart className="shopping-cart" />
           Add To Cart
         </Button>

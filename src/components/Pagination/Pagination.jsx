@@ -25,8 +25,12 @@ export default function Pagination({
         <MdKeyboardArrowLeft />
       </button>
       {niz.map((value, index) => {
+        const isActive = page === value;
         return (
-          <button className="number" onClick={() => setPage(value)}>
+          <button
+            style={{ backgroundColor: isActive ? "#f47422" : "#003366" }}
+            onClick={() => setPage(value)}
+          >
             {value}
           </button>
         );

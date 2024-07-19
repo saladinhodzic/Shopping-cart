@@ -31,6 +31,7 @@ export default function Cart() {
               />
             );
           })}
+          <h1>Total amount:</h1>
         </div>
       )}
     </div>

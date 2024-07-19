@@ -2,7 +2,7 @@
   width: 100%;
   height: 150px;
   display: grid;
-  grid-template-columns: 1fr 1fr 3fr;
+  grid-template-columns: 2fr 3fr 4fr 2fr;
   box-shadow: 0 0 20px 1px #222;
   border-radius: 15px;
   align-items: center;
@@ -17,11 +17,21 @@
   border-bottom-left-radius: 15px;
 }
 
-.product-cart > h2,
+.product-price {
+  justify-self: end;
+}
+
+.remove-button {
+  background-color: #f47422;
+  margin: 0 3em;
+}
+
+.product-price > h2,
 .product-info > h2 {
   color: black;
 }
 
-.product-info > p {
+.product-info > p,
+.product-price > p {
   color: #838386;
 }

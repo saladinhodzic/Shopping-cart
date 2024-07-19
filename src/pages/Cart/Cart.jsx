@@ -3,7 +3,7 @@ import { AppContext } from "../../context/AppContext";
 import CartCard from "../../components/CartCard/CartCard";
 import "./Cart.css";
 export default function Cart() {
-  const { productsInCart } = useContext(AppContext);
+  const { productsInCart, addToCart } = useContext(AppContext);
   return (
     <div className="wrapper-page">
       <div className="wrapper-cart">
@@ -16,6 +16,7 @@ export default function Cart() {
               stock={product.stock}
               price={product.current_price}
               description={product.short_description}
+              onClick={() => addToCart(product)}
             />
           );
         })}

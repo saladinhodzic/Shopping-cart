@@ -6,6 +6,7 @@ export default function CartCard({
   stock,
   price,
   onClick,
+  discountPrice,
 }) {
   return (
     <div className="product-cart">

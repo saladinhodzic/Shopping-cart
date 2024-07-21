@@ -33,12 +33,20 @@ export default function Outlet() {
                 slika={product.image_url}
                 description={product.short_description}
                 title={product.title}
-                onClick={() => addToCart(product)}
+                onClick={() => {
+                  addToCart({
+                    ...product,
+                    discountPrice:
+                      Math.round(price - price * (product.percentage / 100)) /
+                      1000,
+                  });
+                }}
                 product={product}
                 price={product.current_price}
                 discountPrice={
                   Math.round(price - price * (product.percentage / 100)) / 1000
                 }
+                discount={product.percentage ? true : false}
               />
             );
           })

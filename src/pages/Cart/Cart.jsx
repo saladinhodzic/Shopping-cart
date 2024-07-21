@@ -6,6 +6,18 @@ import "./Cart.css";
 import { Link } from "react-router-dom";
 export default function Cart() {
   const { productsInCart, addToCart } = useContext(AppContext);
+  const totalPrice = productsInCart.reduce((acc, product) => {
+    let newPrice;
+    if (product.discountPrice) {
+      newPrice = product.discountPrice * 1000;
+    } else {
+      const firstIndexOfComma = product.current_price.indexOf(",");
+      const price =
+        Number(product.current_price.slice(0, firstIndexOfComma)) * 1000;
+      newPrice = price;
+    }
+    return acc + newPrice;
+  }, 0);
   return (
     <div className="wrapper-page">
       {productsInCart.length < 1 ? (
@@ -25,13 +37,17 @@ export default function Cart() {
                 image={product.image_url}
                 title={product.title}
                 stock={product.stock}
-                price={product.current_price}
+                price={
+                  product.discountPrice
+                    ? product.discountPrice
+                    : product.current_price
+                }
                 description={product.short_description}
                 onClick={() => addToCart(product)}
               />
             );
           })}
-          <h1>Total amount:</h1>
+          <h1>Total amount:{totalPrice / 1000}</h1>
         </div>
       )}
     </div>

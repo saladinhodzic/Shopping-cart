@@ -26,6 +26,9 @@ export default function Products() {
       <div className="wrapper-product">
         {products
           .map((product) => {
+            const firstIndexOfComma = product.current_price.indexOf(",");
+            const price =
+              Number(product.current_price.slice(0, firstIndexOfComma)) * 1000;
             return (
               <ProductCard
                 key={product.id}
@@ -34,7 +37,7 @@ export default function Products() {
                 title={product.title}
                 onClick={() => addToCart(product)}
                 product={product}
-                price={product.current_price}
+                price={price}
               />
             );
           })

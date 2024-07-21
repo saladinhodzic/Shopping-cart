@@ -28,6 +28,8 @@ export default function Outlet() {
             const firstIndexOfComma = product.current_price.indexOf(",");
             const price =
               Number(product.current_price.slice(0, firstIndexOfComma)) * 1000;
+            const finalPrice =
+              Math.round(price - price * (product.percentage / 100)) / 1000;
             return (
               <ProductCard
                 slika={product.image_url}
@@ -43,9 +45,7 @@ export default function Outlet() {
                 }}
                 product={product}
                 price={product.current_price}
-                discountPrice={
-                  Math.round(price - price * (product.percentage / 100)) / 1000
-                }
+                discountPrice={finalPrice}
                 discount={product.percentage ? true : false}
               />
             );

@@ -6,7 +6,7 @@ export default function CartCard({
   stock,
   price,
   onClick,
-  discountPrice,
+  quantity,
 }) {
   return (
     <div className="product-cart">
@@ -14,6 +14,11 @@ export default function CartCard({
       <div className="product-info">
         <h2>{title}</h2>
         <p>{description}</p>
+      </div>
+      <div className="quantity">
+        <p>Quantity:{quantity}</p>
+        <button>+</button>
+        <button>-</button>
       </div>
       <div className="product-price">
         <h2>{price}</h2>

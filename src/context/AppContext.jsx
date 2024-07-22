@@ -43,21 +43,24 @@ function ContextWrapper({ children }) {
     SetProductsInCart(newProducts);
   };
   const decrement = (product) => {
-    const newProducts = productsInCart.map((value) => {
-      const matching = value.id === product.id;
-      if (!matching) {
-        return value;
-      } else {
-        if (value.quantity > 0) {
-          return {
-            ...value,
-            quantity: value.quantity - 1,
-            stock: value.stock + 1,
-          };
-        } else if (value.quantity === 0) {
+    const newProducts = productsInCart
+      .map((value) => {
+        const matching = value.id === product.id;
+        if (!matching) {
+          return value;
+        } else {
+          if (value.quantity > 1) {
+            return {
+              ...value,
+              quantity: value.quantity - 1,
+              stock: value.stock + 1,
+            };
+          } else {
+            return null;
+          }
         }
-      }
-    });
+      })
+      .filter((value) => value !== null);
     SetProductsInCart(newProducts);
   };
   const values = {

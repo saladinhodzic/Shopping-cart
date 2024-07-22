@@ -18,7 +18,7 @@ export default function CartCard({
         <p>{description}</p>
       </div>
       <div className="quantity">
-        <p>Quantity:{quantity}</p>
+        <p>Quantity: {quantity}</p>
         <button onClick={incrementProduct}>+</button>
         <button onClick={decrementProduct}>-</button>
       </div>

@@ -7,6 +7,8 @@ export default function CartCard({
   price,
   onClick,
   quantity,
+  incrementProduct,
+  decrementProduct,
 }) {
   return (
     <div className="product-cart">
@@ -17,8 +19,8 @@ export default function CartCard({
       </div>
       <div className="quantity">
         <p>Quantity:{quantity}</p>
-        <button>+</button>
-        <button>-</button>
+        <button onClick={incrementProduct}>+</button>
+        <button onClick={decrementProduct}>-</button>
       </div>
       <div className="product-price">
         <h2>{price}</h2>

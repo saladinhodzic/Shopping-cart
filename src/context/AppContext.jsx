@@ -16,17 +16,58 @@ function ContextWrapper({ children }) {
           {
             ...product,
             stock: product.stock - 1,
+            quantity: 1,
           },
         ];
       }
     });
   }
+
+  const increment = (product) => {
+    const newProducts = productsInCart.map((value) => {
+      const matching = value.id === product.id;
+      if (!matching) {
+        return value;
+      } else {
+        if (value.stock > 0) {
+          return {
+            ...value,
+            quantity: value.quantity + 1,
+            stock: value.stock - 1,
+          };
+        } else {
+          return value;
+        }
+      }
+    });
+    SetProductsInCart(newProducts);
+  };
+  const decrement = (product) => {
+    const newProducts = productsInCart.map((value) => {
+      const matching = value.id === product.id;
+      if (!matching) {
+        return value;
+      } else {
+        if (value.quantity > 0) {
+          return {
+            ...value,
+            quantity: value.quantity - 1,
+            stock: value.stock + 1,
+          };
+        } else if (value.quantity === 0) {
+        }
+      }
+    });
+    SetProductsInCart(newProducts);
+  };
   const values = {
     productsInCart,
     SetProductsInCart,
     addToCart,
     discount,
     setDiscount,
+    increment,
+    decrement,
   };
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;
 }

@@ -5,7 +5,8 @@ import shopPhoto from "../../assets/shop.jpg";
 import "./Cart.css";
 import { Link } from "react-router-dom";
 export default function Cart() {
-  const { productsInCart, addToCart } = useContext(AppContext);
+  const { productsInCart, addToCart, increment, decrement } =
+    useContext(AppContext);
   const totalPrice = productsInCart.reduce((acc, product) => {
     let newPrice;
     if (product.discountPrice) {
@@ -44,6 +45,9 @@ export default function Cart() {
                 }
                 description={product.short_description}
                 onClick={() => addToCart(product)}
+                quantity={product.quantity}
+                incrementProduct={() => increment(product)}
+                decrementProduct={() => decrement(product)}
               />
             );
           })}

@@ -4,8 +4,14 @@ export default function Modal({ confirm, reject }) {
     <div className="modal-wrapper">
       <div className="modal-info">
         <h2>Are you sure you want to remove product from cart?</h2>
-        <button onClick={reject}>No</button>
-        <button onClick={confirm}>Confirm</button>
+        <div className="modal-buttons">
+          <button className="reject" onClick={reject}>
+            No
+          </button>
+          <button className="confirm" onClick={confirm}>
+            Confirm
+          </button>
+        </div>
       </div>
     </div>
   );

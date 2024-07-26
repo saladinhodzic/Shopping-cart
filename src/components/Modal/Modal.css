@@ -15,9 +15,27 @@
   width: 25%;
   height: 250px;
   padding: 2em 1em;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .modal-info > h2 {
   color: black;
   text-align: center;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+.reject {
+  background-color: #003366;
+}
+
+.confirm {
+  background-color: #f47422;
 }

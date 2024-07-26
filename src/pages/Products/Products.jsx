@@ -4,9 +4,9 @@ import "./Products.css";
 import { useContext, useEffect, useState } from "react";
 import Pagination from "../../components/Pagination/Pagination";
 import { AppContext } from "../../context/AppContext";
+import Modal from "../../components/Modal/Modal";
 export default function Products() {
   const { addToCart, setDiscount } = useContext(AppContext);
-
   const [page, setPage] = useState(1);
   const proizvod = products.length;
   const brojPoStranici = 15;
@@ -35,7 +35,10 @@ export default function Products() {
                 slika={product.image_url}
                 description={product.short_description}
                 title={product.title}
-                onClick={() => addToCart(product)}
+                onClick={() => {
+                  addToCart(product);
+                  setOpen(!open);
+                }}
                 product={product}
                 price={price}
               />

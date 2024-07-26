@@ -1,0 +1,23 @@
+.modal-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.354);
+}
+
+.modal-info {
+  background-color: #fff;
+  width: 25%;
+  height: 250px;
+  padding: 2em 1em;
+}
+
+.modal-info > h2 {
+  color: black;
+  text-align: center;
+}

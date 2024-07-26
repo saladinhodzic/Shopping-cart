@@ -1,12 +1,15 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AppContext } from "../../context/AppContext";
 import CartCard from "../../components/CartCard/CartCard";
 import shopPhoto from "../../assets/shop.jpg";
 import "./Cart.css";
 import { Link } from "react-router-dom";
+import Modal from "../../components/Modal/Modal";
 export default function Cart() {
   const { productsInCart, addToCart, increment, decrement } =
     useContext(AppContext);
+  const [open, setOpen] = useState(false);
+  console.log(open);
   const totalPrice = productsInCart.reduce((acc, product) => {
     let newPrice;
     if (product.discountPrice) {
@@ -44,7 +47,10 @@ export default function Cart() {
                     : product.current_price
                 }
                 description={product.short_description}
-                onClick={() => addToCart(product)}
+                onClick={() => {
+                  addToCart(product);
+                  setOpen(!open);
+                }}
                 quantity={product.quantity}
                 incrementProduct={() => increment(product)}
                 decrementProduct={() => decrement(product)}
@@ -54,6 +60,7 @@ export default function Cart() {
           <h1>Total amount:{totalPrice / 1000}</h1>
         </div>
       )}
+      {open && <Modal />}
     </div>
   );
 }

@@ -22,6 +22,14 @@ export default function Cart() {
     }
     return acc + newPrice;
   }, 0);
+
+  const removeProduct = () => {
+    productsInCart.find((value) => {
+      addToCart(value);
+      setOpen(!open);
+    });
+  };
+
   return (
     <div className="wrapper-page">
       {productsInCart.length < 1 ? (
@@ -48,7 +56,7 @@ export default function Cart() {
                 }
                 description={product.short_description}
                 onClick={() => {
-                  addToCart(product);
+                  // addToCart(product);
                   setOpen(!open);
                 }}
                 quantity={product.quantity}
@@ -60,7 +68,7 @@ export default function Cart() {
           <h1>Total amount:{totalPrice / 1000}</h1>
         </div>
       )}
-      {open && <Modal />}
+      {open && <Modal confirm={removeProduct} reject={() => setOpen(!open)} />}
     </div>
   );
 }

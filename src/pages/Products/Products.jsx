@@ -1,14 +1,15 @@
+import Pop from "../../components/Notification/Notification";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import products from "../../common/products.json";
 import "./Products.css";
 import { useContext, useEffect, useState } from "react";
 import Pagination from "../../components/Pagination/Pagination";
 import { AppContext } from "../../context/AppContext";
-import { Notification } from "@mantine/core";
-import "@mantine/core/styles.css";
+
 export default function Products() {
   const { addToCart, setDiscount } = useContext(AppContext);
   const [page, setPage] = useState(1);
+  const [pop, setPop] = useState(false);
   const proizvod = products.length;
   const brojPoStranici = 15;
   const brojStranica = Math.ceil(proizvod / brojPoStranici);
@@ -38,7 +39,7 @@ export default function Products() {
                 title={product.title}
                 onClick={() => {
                   addToCart(product);
-                  setOpen(!open);
+                  setPop(!pop);
                 }}
                 product={product}
                 price={price}
@@ -47,12 +48,16 @@ export default function Products() {
           })
           .slice(brojPoStranici * (page - 1), brojPoStranici * page)}
       </div>
+      {pop ? <Pop added={"You added to cart"} /> : null}
+
       <div className="pagination">
-        <Pagination brojStranica={brojStranica} setPage={setPage} page={page} />
+        <Pagination
+          className="paginacija"
+          brojStranica={brojStranica}
+          setPage={setPage}
+          page={page}
+        />
       </div>
-      <Notification title="We notify you that">
-        You are now obligated to give a star to Mantine project on GitHub
-      </Notification>
     </>
   );
 }

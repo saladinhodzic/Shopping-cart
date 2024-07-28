@@ -50,7 +50,6 @@ export default function Products() {
                       title: "You successfully removed product from cart!",
                       color: "red",
                     });
-                    console.log("true");
                   } else {
                     addToCart(product);
                     notifications.show({
@@ -58,7 +57,6 @@ export default function Products() {
                       message: "You can go to cart to check it out!",
                       color: "blue",
                     });
-                    console.log("false");
                   }
                 }}
                 product={product}

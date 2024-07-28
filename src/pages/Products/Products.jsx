@@ -4,7 +4,8 @@ import "./Products.css";
 import { useContext, useEffect, useState } from "react";
 import Pagination from "../../components/Pagination/Pagination";
 import { AppContext } from "../../context/AppContext";
-import Modal from "../../components/Modal/Modal";
+import { Notification } from "@mantine/core";
+import "@mantine/core/styles.css";
 export default function Products() {
   const { addToCart, setDiscount } = useContext(AppContext);
   const [page, setPage] = useState(1);
@@ -49,6 +50,9 @@ export default function Products() {
       <div className="pagination">
         <Pagination brojStranica={brojStranica} setPage={setPage} page={page} />
       </div>
+      <Notification title="We notify you that">
+        You are now obligated to give a star to Mantine project on GitHub
+      </Notification>
     </>
   );
 }

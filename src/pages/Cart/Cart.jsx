@@ -56,7 +56,6 @@ export default function Cart() {
                 }
                 description={product.short_description}
                 onClick={() => {
-                  // addToCart(product);
                   setOpen(!open);
                 }}
                 quantity={product.quantity}
@@ -68,7 +67,12 @@ export default function Cart() {
           <h1>Total amount:{totalPrice / 1000}</h1>
         </div>
       )}
-      {open && <Modal confirm={removeProduct} reject={() => setOpen(!open)} />}
+      {open && (
+        <Modal
+          confirm={() => removeProduct(product)}
+          reject={() => setOpen(!open)}
+        />
+      )}
     </div>
   );
 }

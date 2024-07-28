@@ -11,9 +11,8 @@ import { AppContext } from "../../context/AppContext";
 import { notifications } from "@mantine/notifications";
 
 export default function Products() {
-  const { addToCart, setDiscount } = useContext(AppContext);
+  const { addToCart, setDiscount, productsInCart } = useContext(AppContext);
   const [page, setPage] = useState(1);
-  const [pop, setPop] = useState(false);
   const proizvod = products.length;
   const brojPoStranici = 15;
   const brojStranica = Math.ceil(proizvod / brojPoStranici);
@@ -35,6 +34,9 @@ export default function Products() {
             const firstIndexOfComma = product.current_price.indexOf(",");
             const price =
               Number(product.current_price.slice(0, firstIndexOfComma)) * 1000;
+            const isProductInCart = productsInCart.find(
+              (value) => value.id === product.id
+            );
             return (
               <ProductCard
                 key={product.id}
@@ -42,14 +44,22 @@ export default function Products() {
                 description={product.short_description}
                 title={product.title}
                 onClick={() => {
-                  addToCart(product);
-                  setPop(
+                  if (isProductInCart) {
+                    addToCart(product);
                     notifications.show({
                       title: "You successfully removed product from cart!",
-                      message: "You can go to cart to check it out!",
                       color: "red",
-                    })
-                  );
+                    });
+                    console.log("true");
+                  } else {
+                    addToCart(product);
+                    notifications.show({
+                      title: "You successfully added product to cart!",
+                      message: "You can go to cart to check it out!",
+                      color: "blue",
+                    });
+                    console.log("false");
+                  }
                 }}
                 product={product}
                 price={price}

@@ -9,8 +9,10 @@ function ContextWrapper({ children }) {
     SetProductsInCart((prev) => {
       const isProductInCart = prev.some((item) => item.id === product.id);
       if (isProductInCart) {
+        localStorage.removeItem(product.id);
         return prev.filter((item) => item.id !== product.id);
       } else {
+        localStorage.setItem(product.id, JSON.stringify(product));
         return [
           ...prev,
           {
